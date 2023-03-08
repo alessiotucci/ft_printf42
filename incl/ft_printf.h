@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/08 12:45:44 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/08 16:36:09 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,14 @@
 #include <stdlib.h>
 
 // Function prototype for ft_putchar(), which is defined in another source file.
-int ft_putchar(char c);
+int		ft_putchar(char c);
 
-int	ft_printf(const char *format, ...);
+int		ft_strlen(const char *str);
+
+
+void	ft_putnbr(int n);
+
+int		ft_putstr(char *str);
+
+int		ft_printf(const char *format, ...);
 #endif
