@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/10 13:53:33 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/11 16:26:29 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int		ft_putstr(char *str);
 int		ft_printf(const char *format, ...);
 
 // bonus function (?)
-int handle_minus_flag(const char *format, int i, t_printf *tdata);
+int width_flag(const char *format, int i, t_printf *tdata);
 #endif

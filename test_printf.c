@@ -14,11 +14,11 @@ int	main()
 	printf( "%c  %s",  C, str);
 	
 	// Test with '-' flag present
-    ft_printf("%-15c%-10s", y, prova);
+    ft_printf("%5c %5s", y, prova);
     write(1, "\n", 1);
 	write(1, "\n", 1);
 	printf( "this is the original:\n");
-   	printf("%-15c%-10s", y, prova);
+   	printf("%5c %5s", y, prova);
     write(1, "\n", 1);
 
 	return (0);
