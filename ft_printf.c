@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:55 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/12 16:34:09 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/12 17:23:01 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // global variable (?)
 t_printf g_printf;
 
-/*void init_tdata(t_printf *tdata)
+void init_tdata(t_printf *tdata)
 {
 	tdata->ret = 0;
 	tdata->width = 0;
@@ -29,7 +29,7 @@ t_printf g_printf;
 	tdata->is_zero = 0;
 	tdata->is_minus = 0;
 	tdata->is_dot = 0;
-}*/
+}
 static int placeholder(va_list *arg, char q, int count)
 {
 // inside this function I should do all the check for the place holder 
@@ -68,11 +68,11 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	va_list	args; //check the syntax
 
-/*
+
     t_printf tdata;
     init_tdata(&tdata);
 
-*/
+
 
 	va_start(args, format);
 	count = 0;
