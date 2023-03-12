@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/11 16:26:29 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/12 15:47:32 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,15 @@ int		ft_putchar(char c);
 int		ft_strlen(const char *str);
 
 
-void	ft_putnbr(int n);
+int		ft_putnbr(int n);
 
 int		ft_putstr(char *str);
 
 int		ft_printf(const char *format, ...);
 
+int		ft_len_u(unsigned long n);
+
+int		ft_pointer(unsigned long nb);
 // bonus function (?)
 int width_flag(const char *format, int i, t_printf *tdata);
 #endif

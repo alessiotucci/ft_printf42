@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:55 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/11 16:58:55 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/12 16:34:09 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,47 @@
 // global variable (?)
 t_printf g_printf;
 
-void init_tdata(t_printf *tdata)
+/*void init_tdata(t_printf *tdata)
 {
 	tdata->ret = 0;
 	tdata->width = 0;
+	// debuggin
+//	printf("init  width: %d\n", tdata->width);
+
 	tdata->precision = -1;
 	//The precision field is initialized to -1 because it's used to indicate that no precision was specified
 	tdata->is_zero = 0;
 	tdata->is_minus = 0;
 	tdata->is_dot = 0;
-}
+}*/
 static int placeholder(va_list *arg, char q, int count)
 {
 // inside this function I should do all the check for the place holder 
 // %c
 // %s 
 // %p and so on
-        t_printf tdata;
-    init_tdata(&tdata);
+    //  t_printf tdata;
+ //   init_tdata(&tdata);
 
 
-/*	int cot = 0;
-	while (cot <= tdata.width )
-	{
-		count += ft_putchar(' ');
-		cot++;
-	}*/
-			
-    /* Perform the appropriate conversion */	
+	/*int cot = 0;
+	//	printf("this is the loops  width:%d\n", tdata.width);	
+		while (cot < tdata.width  && tdata.width == 5)
+		{
+			count += ft_putchar('!');
+			cot++;
+		}*/
+    //Perform the appropriate conversion 	
 			if (q == 'c')
 				count += ft_putchar(va_arg(*arg, int));
 			else if (q == 's')
 				count += ft_putstr(va_arg(*arg, char*));
+			else if (q == 'd' || q == 'i')
+				count += ft_putnbr(va_arg(*arg, int));
+			else if (q == 'p')
+				count += ft_pointer(va_arg(*arg, unsigned long));
+			else if (q == '%')
+				count += ft_putchar('%');
 			// add more conversion here
 	return (count);
 }
@@ -59,11 +68,11 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	va_list	args; //check the syntax
 
-//
+/*
     t_printf tdata;
     init_tdata(&tdata);
 
-//
+*/
 
 	va_start(args, format);
 	count = 0;
@@ -75,10 +84,10 @@ int	ft_printf(const char *format, ...)
 		// I found the placeholder!!
 		
 		// check for the flag
-		count += width_flag(format, i, &tdata);
+		//count += width_flag(format, i + 1, &tdata);
 		
 		// converting 
-		count += placeholder(&args,((char *) format) [i + 1], count); // typecasting!
+		count = placeholder(&args,((char *) format) [i + 1], count); // typecasting!
 
 			i++;
 		}

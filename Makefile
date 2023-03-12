@@ -6,7 +6,7 @@
 #    By: atucci <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:23:33 by atucci            #+#    #+#              #
-#    Updated: 2023/03/08 12:30:19 by atucci           ###   ########.fr        #
+#    Updated: 2023/03/12 15:59:04 by atucci           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = ./libftprintf.a
 #This sets the variable NAME to ./libftprintf.a, which is the name and location of the static library that we will build.
 
 SRC = ./ft_printf.c \
+srcs/ft_pointer.c \
 srcs/ft_num_utils.c \
 srcs/ft_printf_utils.c \
 

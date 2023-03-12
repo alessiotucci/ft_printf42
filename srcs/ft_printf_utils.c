@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:45:04 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/11 15:41:20 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/12 14:25:48 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,21 @@ int	ft_putstr(char *str)
 	return (count);
 }
 
-int width_flag(const char *format, int i, t_printf *tdata)
+/*int width_flag(const char *format, int i, t_printf *tdata)
 {
-        /* Calculate the width */
+        // Calculate the width 
         int width = 0;
         while (format[i] >= '0' && format[i] <= '9')
         {
-            width = width * 10 + (format[i] - '0');
+			width = width * 10 + (format[i] - '0');
             i++;
         }
-        tdata->width = width;
+		tdata->width = width; // accessing the  structr
+		 //printf("this is the  new width:%d\n", tdata->width);
 
-        /* Return the updated index */
-        return (i - 1);
+        // Return the updated index 
+        return (i + 1);
 
-}
+}*/
 
 
