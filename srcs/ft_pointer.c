@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:28:24 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/12 15:58:37 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/13 18:07:39 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,9 @@ int	ft_pointer(unsigned long nb)
 	count += ft_putstr(str); // Print the hexadecimal string
 	free(str); // Free the memory allocated for the string
 	return (count);
+}
+
+int	white_spaces(void)
+{
+	return (write(1, "  ", 1));
 }

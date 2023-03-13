@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/12 15:47:32 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/13 18:07:59 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ is_minus: This integer is a flag that is set to 1 if the '-' flag is specified i
 
 is_dot: This integer is a flag that is set to 1 if the '.' flag is specified in the format string. This flag is used to determine whether a precision was specified in the format string.*/ 
 
-typedef struct	s_printf
+typedef struct
 {
     va_list args;
     int ret;
@@ -53,7 +53,10 @@ typedef struct	s_printf
     int is_zero;
     int is_minus;
     int is_dot;
-}				t_printf;
+}				flags;
+
+//global variable GPT
+extern	flags g_bonus;
 
 // Function prototype for ft_putchar(), which is defined in another source file.
 int		ft_putchar(char c);
@@ -71,5 +74,7 @@ int		ft_len_u(unsigned long n);
 
 int		ft_pointer(unsigned long nb);
 // bonus function (?)
-int width_flag(const char *format, int i, t_printf *tdata);
+int width_flag(const char *format, int i, flags *tdata);
+
+int	white_spaces(void);
 #endif
