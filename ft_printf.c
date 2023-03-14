@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:55 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/14 13:35:49 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/14 17:05:27 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ void init_tdata(flags *data)
 {
 	data->ret = 0;
 	data->width = 0;
-	// debuggin
-	//printf("init  width: %d\n", data->width);
-
 	data->precision = -1;
 	//The precision field is initialized to -1 because it's used to indicate that no precision was specified
 	data->is_zero = 0;
-	data->is_minus = 0;
+	data->is_minus = 1;
 	data->is_dot = 0;
 }
 static int placeholder(va_list *arg, char q, int count)
@@ -38,12 +35,25 @@ static int placeholder(va_list *arg, char q, int count)
 // %p and so on
  
 	//printf("this is the width B4 conversion:%d\n", g_bonus.width);	
-    
+   // int diff = 0;
+//	int x;
 	//Perform the appropriate conversion 	
 			if (q == 'c')
+			{
+			/*	if (g_bonus.width != 0)
+				diff = g_bonus.width - 1;
+				x = 0;
+				while ( x <= diff)
+				{
+					count += pt_putchar(' ');
+					x++;
+				}*/
 				count += pt_putchar(va_arg(*arg, int));
+			}
 			else if (q == 's')
+			{
 				count += pt_putstr(va_arg(*arg, char*));
+			}
 			else if (q == 'd' || q == 'i')
 				count += ft_putnbr(va_arg(*arg, int));
 			else if (q == 'p')
@@ -80,24 +90,18 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%') // once I find the placeholder
 		{
 		// I found the placeholder!!
-		// printf("I found the placeholder at the index [%d]\n", i);	
-		
+
 		// check for the flag
-		// i should be updated since its the index (?)
-		// i = width_flag(format, i + 1, &g_bonus);
-		check_flags(format, i + 1);	
+	//	i  = check_flags(format, i + 1);	
 		
 		// check if the values has been updated
-//	printf("g_bonus.ret	UPDATED= %d\n", g_bonus.ret);
-//    printf("g_bonus.width UPDATED= %d\n", g_bonus.width);
-//    printf("g_bonus.precision UPDATED= %d\n", g_bonus.precision);
-//    printf("g_bonus.is_zero UPDATED= %d\n", g_bonus.is_zero);
-//    printf("g_bonus.is_minus UPDATED= %d\n", g_bonus.is_minus);
-//    printf("g_bonus.is_dot UPDATED= %d\n", g_bonus.is_dot);
-		
-		
-		
-		
+/*	printf("g_bonus.ret	UPDATED= %d\n", g_bonus.ret);
+    printf("g_bonus.width UPDATED= %d\n", g_bonus.width);
+    printf("g_bonus.precision UPDATED= %d\n", g_bonus.precision);
+    printf("g_bonus.is_zero UPDATED= %d\n", g_bonus.is_zero);
+    printf("g_bonus.is_minus UPDATED= %d\n", g_bonus.is_minus);
+    printf("g_bonus.is_dot UPDATED= %d\n", g_bonus.is_dot);*/
+		//count = do_flags();	
 		// converting 
 		count = placeholder(&args,((char *) format) [i + 1], count); // typecasting!
 

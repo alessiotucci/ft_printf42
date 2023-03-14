@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/14 13:12:24 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/14 16:13:21 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ int		ft_pointer(unsigned long nb);
 // bonus function (?)
 int width_flag(const char *format, int i, flags *tdata);
 
-void check_flags(const char *str, int i);
+int check_flags(const char *str, int i);
 #endif

@@ -3,7 +3,7 @@
 
 int	main()
 {
-    char *str = "test string";
+    char *str = "hey";
     int num = 12345;
     char c = 'a';
     
@@ -15,8 +15,8 @@ int	main()
 
     // Test with '-' flag for left justification
 	printf("Test with '-' flag for left justification\n\n");
-   	printf("original: %-10s %d\n", str, num);
-    ft_printf("fatto in casa: %-10s %d\n", str, num);
+   	printf("original: %9s %3d\n", str, num);
+    ft_printf("fatto in casa: %9s %3d\n", str, num);
     write(1, "\n", 1);
 
     // Test with '+' flag for signed numbers
