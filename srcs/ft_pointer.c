@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:28:24 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/13 18:07:39 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/14 12:46:27 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_pointer(unsigned long nb)
 	int		count;
 
 	count = 0;
-	count += ft_putstr("0x"); // Print the '0x' prefix for pointers
+	count += pt_putstr("0x"); // Print the '0x' prefix for pointers
 	hex = "0123456789abcdef"; // Set up the string of hexadecimal digits
 	str = (char *)malloc((ft_len_u(nb) + 1) * sizeof(char)); // Allocate memory for the hexadecimal string
 	if (!str)
@@ -53,7 +53,7 @@ int	ft_pointer(unsigned long nb)
 		nb = nb / 16; // Divide by 16 to get the next hexadecimal digit
 		i--; // Decrement the index to move to the next character in the string
 	}
-	count += ft_putstr(str); // Print the hexadecimal string
+	count += pt_putstr(str); // Print the hexadecimal string
 	free(str); // Free the memory allocated for the string
 	return (count);
 }
@@ -62,3 +62,5 @@ int	white_spaces(void)
 {
 	return (write(1, "  ", 1));
 }
+
+

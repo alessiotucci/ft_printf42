@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/13 18:07:59 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/14 13:12:24 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ typedef struct
 extern	flags g_bonus;
 
 // Function prototype for ft_putchar(), which is defined in another source file.
-int		ft_putchar(char c);
+int		pt_putchar(char c);
 
-int		ft_strlen(const char *str);
+int		pt_strlen(const char *str);
 
 
 int		ft_putnbr(int n);
 
-int		ft_putstr(char *str);
+int		pt_putstr(char *str);
 
 int		ft_printf(const char *format, ...);
 
@@ -76,5 +76,5 @@ int		ft_pointer(unsigned long nb);
 // bonus function (?)
 int width_flag(const char *format, int i, flags *tdata);
 
-int	white_spaces(void);
+void check_flags(const char *str, int i);
 #endif

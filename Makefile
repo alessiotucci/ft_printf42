@@ -6,7 +6,7 @@
 #    By: atucci <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:23:33 by atucci            #+#    #+#              #
-#    Updated: 2023/03/12 15:59:04 by atucci           ###   ########.fr        #
+#    Updated: 2023/03/14 12:36:23 by atucci           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = ./ft_printf.c \
 srcs/ft_pointer.c \
 srcs/ft_num_utils.c \
 srcs/ft_printf_utils.c \
+srcs/check_flags.c \
 
 #This sets the variable SRC to a list of C source files that are needed to build the libftprintf.a library.
 

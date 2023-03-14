@@ -6,19 +6,19 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:45:04 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/14 11:02:41 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/14 13:03:57 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/ft_printf.h"
 
 #include <stdio.h> // debugging
-int	ft_putchar(char c)
+int	pt_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
-int	ft_strlen(const char *str)
+int	pt_strlen(const char *str)
 {
 	int	count;
 
@@ -28,38 +28,17 @@ int	ft_strlen(const char *str)
 	return (count);
 }
 
-int	ft_putstr(char *str)
+int	pt_putstr(char *str)
 {
 	int count;
 	count = 0;
 	if	(str == NULL)
-	return(ft_putstr("(null)"));
+	return(pt_putstr("(null)"));
 	
 	while (str[count])
 	{
-		ft_putchar(str[count]);
+		pt_putchar(str[count]);
 		count++;
 	}
 	return (count);
 }
-
-int width_flag(const char *format, int i, flags *g_bonus)
-{
-        // Calculate the width 
-        int width = 0;
-        while (format[i] >= '0' && format[i] <= '9')
-        {
-			width = width * 10 + (format[i] - '0');
-            i++;
-        }
-		g_bonus->width = width; // accessing the  structr
-		// printf("this is the  new width:%d\n", g_bonus->width);
-
-        // Return the updated index 
-        //printf ("this is the index I'm returning: %d\n", i);
-		return (i);
-
-
-}
-
-
