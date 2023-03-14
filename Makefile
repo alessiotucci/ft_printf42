@@ -42,6 +42,8 @@ CC = gcc -Wall -Wextra -Werror
 #This is a rule that specifies how to build an object file from a C source file. It compiles the C file with the appropriate flags and options, and outputs the resulting object file.
 
 $(NAME): ${OBJS}
+	$(MAKE) -C ./libft
+	cp ./libft/libft.a ./$(NAME)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
@@ -53,15 +55,15 @@ all: $(NAME)
 
 clean:
 	${RM} $(OBJS)
-
+	$(MAKE) -C ./libft clean
 #This rule specifies how to clean up the generated object files.
 
 fclean: clean
 	${RM} $(NAME) ${OBJS}
-
+	$(MAKE) -C ./libft fclean
 #This rule specifies how to completely remove the generated object files and the libftprintf.a library.
 
-re: $(NAME)
+re: fclean all
 
 #This rule specifies how to rebuild the project completely by removing all object files and rebuilding the libftprintf.a library.
 

@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:55 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/13 18:21:34 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/14 11:06:09 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ int	ft_printf(const char *format, ...)
 	//	printf("I found the placeholder at the index [%d]\n", i);	
 		// check for the flag
 		// i should be updated since its the index (?)
-		i = width_flag(format, i + 1, &g_bonus);
+		// i = width_flag(format, i + 1, &g_bonus);
 		
 		// converting 
-		count = placeholder(&args,((char *) format) [i], count); // typecasting!
+		count = placeholder(&args,((char *) format) [i + 1], count); // typecasting!
 
 			i++;
 		}
