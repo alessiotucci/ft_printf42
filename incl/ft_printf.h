@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/14 16:13:21 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/18 01:40:53 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ is_dot: This integer is a flag that is set to 1 if the '.' flag is specified in 
 
 typedef struct
 {
-    va_list args;
-    int ret;
     int width;
     int precision;
     int is_zero;
@@ -74,7 +72,10 @@ int		ft_len_u(unsigned long n);
 
 int		ft_pointer(unsigned long nb);
 // bonus function (?)
-int width_flag(const char *format, int i, flags *tdata);
+int check_sign_flags(const char *str, int i);
 
-int check_flags(const char *str, int i);
+int check_formatting_flags(const char *str, int i);
+
+int print_sign(void);
+
 #endif
