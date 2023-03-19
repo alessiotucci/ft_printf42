@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:55 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/18 01:29:13 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:00:51 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void init_tdata(flags *data)
 	data->precision = -1;
 	//The precision field is initialized to -1 because it's used to indicate that no precision was specified
 	data->is_zero = 0;
-	data->is_minus = 1;
+	data->is_minus = 0;
+	data->is_plus = 0;
 	data->is_dot = 0;
 }
 static int placeholder(va_list *arg, char q, int count)
@@ -32,8 +33,8 @@ static int placeholder(va_list *arg, char q, int count)
 // %c
 // %s 
 // %p and so on
- 
-	//printf("this is the width B4 conversion:%d\n", g_bonus.width);	
+	 
+	//printf("\nthis is the count B4 conversion:%d\n", count);	
    // int diff = 0;
 //	int x;
 	//Perform the appropriate conversion 	
@@ -46,7 +47,9 @@ static int placeholder(va_list *arg, char q, int count)
 				count += pt_putstr(va_arg(*arg, char*));
 			}
 			else if (q == 'd' || q == 'i')
+			{
 				count += ft_putnbr(va_arg(*arg, int));
+			}
 			else if (q == 'p')
 				count += ft_pointer(va_arg(*arg, unsigned long));
 			else if (q == '%')
@@ -73,16 +76,19 @@ int	ft_printf(const char *format, ...)
 
 	va_start(args, format);
 	count = 0;
+//	printf("\ncount should be zero but is %d\n", count);
 	i = 0;
 	while (format[i]) //checking the format string for placeholders
 	{
 		if (format[i] == '%') // once I find the placeholder
 		{
 		// I found the placeholder!!
-
+	//	printf("\nWHY count is %d", count);
 		// check for the flag
-		 t = check_sign_flags(format, i);	
- 		 t = check_formatting_flags(format, i);
+		 i = check_sign_flags(format, i);	
+ 		 
+		 // commenting this part just  for now!!
+		// t = check_formatting_flags(format, i);
 
 
 		// check if the values has been updated
@@ -93,18 +99,18 @@ int	ft_printf(const char *format, ...)
     printf("g_bonus.is_dot UPDATED= %d\n", g_bonus.is_dot);*/
 		//count = do_flags();	
 		// converting 
-		count = placeholder(&args,((char *) format) [t], count); // typecasting!
-
-			i++;
+		t = print_sign();
+		count = placeholder(&args,((char *) format) [i], count); // typecasting!
+		//printf("\ncount is: %d\n", count);
+		//	i++;
 		}
 		else 
 		{
 		// There is no placeholder so I just print what I have :(
-			pt_putchar(format[i]);
-			count++;
+		count += pt_putchar(format[i]);
 		}
 	i++;
 	}
 	va_end(args); //check the syntax
-	return (count);
+	return (count + t);
 }

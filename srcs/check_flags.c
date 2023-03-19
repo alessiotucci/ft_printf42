@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:31:36 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/18 01:56:20 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/18 15:41:58 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int check_sign_flags(const char *str, int i)
     int index = i + 1;
     int has_minus = 0;
     int has_space = 0;
+	int has_plus = 0;
 
     // Check if the first character is '0'
     if (str[i] == '0')
@@ -42,7 +43,7 @@ int check_sign_flags(const char *str, int i)
 
         // Check for the + or - flag
         if (str[index] == '+')
-            has_minus = 0;
+            has_plus = 1;
         else if (str[index] == '-')
             has_minus = 1;
 
@@ -59,6 +60,8 @@ int check_sign_flags(const char *str, int i)
         g_bonus.is_minus = 2;
     else if (has_minus)
         g_bonus.is_minus = 1;
+	else if (has_plus)
+		g_bonus.is_plus = 1;
 
     // Return the index of the last character before the conversion specifier
     return (index);
@@ -129,18 +132,12 @@ int check_formatting_flags(const char *str, int i)
 
 int print_sign(void)
 {
-    int count = 0;
     if (g_bonus.is_minus == 2) // if space flag is set
-    {
-        ft_putchar_fd(' ', 1);
-        count++;
-    }
-    else if (g_bonus.is_minus == 1) // if plus flag is set
-    {
-        ft_putchar_fd('+', 1);
-        count++;
-    }
-    return count;
+        return(pt_putchar(' '));
+    else if (g_bonus.is_plus == 1) // if plus flag is set
+        return(pt_putchar('+'));
+	else
+		return (0);
 }
 
 

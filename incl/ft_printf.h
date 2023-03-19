@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/18 01:40:53 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/18 15:21:13 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ typedef struct
     int precision;
     int is_zero;
     int is_minus;
-    int is_dot;
+    int is_plus;
+	int is_dot;
 }				flags;
 
 //global variable GPT
