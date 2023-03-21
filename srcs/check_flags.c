@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:31:36 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/18 15:41:58 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/20 15:40:02 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ int check_formatting_flags(const char *str, int i)
 }
 
 
-int print_sign(void)
+
+int print_sign()
 {
     if (g_bonus.is_minus == 2) // if space flag is set
         return(pt_putchar(' '));
@@ -139,5 +140,4 @@ int print_sign(void)
 	else
 		return (0);
 }
-
 

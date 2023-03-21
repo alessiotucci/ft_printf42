@@ -6,7 +6,7 @@
 /*   By: atucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:34:43 by atucci            #+#    #+#             */
-/*   Updated: 2023/03/18 15:21:13 by atucci           ###   ########.fr       */
+/*   Updated: 2023/03/22 00:42:34 by atucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,14 @@ int		ft_printf(const char *format, ...);
 int		ft_len_u(unsigned long n);
 
 int		ft_pointer(unsigned long nb);
+
+int	ft_putnumber_base(unsigned long long int nbr, char *base);
+
+int ft_putuns(unsigned int nbr);
 // bonus function (?)
 int check_sign_flags(const char *str, int i);
+
+int pt_print_padding(char c, int width);
 
 int check_formatting_flags(const char *str, int i);
 
