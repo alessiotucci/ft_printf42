@@ -72,26 +72,16 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	va_list	args; //check the syntax
 	int t;
-    init_tdata(&g_bonus);
-// check the values
-/*  	printf("g_bonus.width = %d\n", g_bonus.width);
-    printf("g_bonus.precision = %d\n", g_bonus.precision);
-    printf("g_bonus.is_zero = %d\n", g_bonus.is_zero);
-    printf("g_bonus.is_minus = %d\n", g_bonus.is_minus);
-    printf("g_bonus.is_dot = %d\n", g_bonus.is_dot);
-*/
-
-
+    
+	init_tdata(&g_bonus);
 	va_start(args, format);
 	count = 0;
-//	printf("\ncount should be zero but is %d\n", count);
 	i = 0;
 	while (format[i]) //checking the format string for placeholders
 	{
 		if (format[i] == '%') // once I find the placeholder
 		{
 		// I found the placeholder!!
-	//	printf("\nWHY count is %d", count);
 		// check for the flag
 		 i = check_sign_flags(format, i);	
  		 
