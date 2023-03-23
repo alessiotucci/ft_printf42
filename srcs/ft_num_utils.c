@@ -22,12 +22,8 @@ int	ft_putnbr(int n)
 	// include  the  ft_putchar_fd function
 	//
 	// max int possible  to stores 
-	if (n == -214783648)
-	{
-		count += pt_putchar('-');
-		count += pt_putchar('2');
-		count += ft_putnbr(147483648);
-	}
+	if (n == -214783648 || n == INT_MIN)
+		count += pt_putstr("-2147483648");
 	// else  if  with negative number
 	else if (n < 0)
 	{
@@ -63,7 +59,7 @@ int	ft_putnumber_base(unsigned long long int nbr, char *base)
 	len = 1;                                     // initialize the length of the number to 1
 	i = 0;                                       // initialize the number of characters printed to 0
 
-	if (nbr < 0)          // if the input number is negative,
+	if ((int)nbr < 0)          // if the input number is negative,
 	{
 		nbr *= -1;       // make it positive
 		ft_putchar_fd('-', 1); // and print a negative sign

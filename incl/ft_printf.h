@@ -28,6 +28,8 @@
 // The <stdlib.h> header file provides general-purpose functions for dynamic memory allocation, random number generation, communication with the environment, integer arithmetics, searching, sorting, and converting.
 #include <stdlib.h>
 
+// The <limits.h> header file provides the limits for MIN_INT
+#include <limits.h> 
 //The struct t_printf is used to store relevant information about the format string and the corresponding arguments. Here's a brief explanation of each field
 
 /* args: This is a va_list object that allows us to access each argument passed to ft_printf. We need this to be able to handle variable argument lists.
