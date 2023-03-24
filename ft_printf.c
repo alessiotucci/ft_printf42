@@ -31,18 +31,6 @@ void init_tdata(flags *data)
 }
 static int placeholder(va_list *arg, char q, int count)
 {
-	// CHATGPT suggerisce
-//	int is_left_aligned = g_bonus.is_minus;
-  //  int field_width = g_bonus.width;
-
-// inside this function I should do all the check for the place holder 
-// %c
-// %s 
-// %p and so on
-	 
-	//printf("\nthis is the count B4 conversion:%d\n", count);	
-   // int diff = 0;
-//	int x;
 	//Perform the appropriate conversion 	
 			if (q == 'c')
 				count += pt_putchar(va_arg(*arg, int));
