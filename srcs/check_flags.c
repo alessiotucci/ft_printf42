@@ -64,7 +64,7 @@ int check_sign_flags(const char *str, int i)
 		g_bonus.is_plus = 1;
 
     // Return the index of the last character before the conversion specifier
-    return (index);
+    return (i);
 }
 
 /**

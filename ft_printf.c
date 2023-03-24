@@ -86,7 +86,7 @@ int	ft_printf(const char *format, ...)
 		 i = check_sign_flags(format, i);	
  		 
 		 // commenting this part just  for now!!
-		 //i  = check_formatting_flags(format, i);
+		 i  = check_formatting_flags(format, i);
 
 
 		// check if the values has been updated
