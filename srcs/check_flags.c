@@ -131,11 +131,11 @@ int check_formatting_flags(const char *str, int i)
 
 
 
-int print_sign()
+int print_sign(int n)
 {
     if (g_bonus.is_minus == 2) // if space flag is set
         return(pt_putchar(' '));
-    else if (g_bonus.is_plus == 1) // if plus flag is set
+    else if (g_bonus.is_plus == 1 && n >= 0) // if plus flag is set
         return(pt_putchar('+'));
 	else
 		return (0);

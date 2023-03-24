@@ -69,17 +69,21 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%') // once I find the placeholder
 		{
-		// I found the placeholder!!
 		// check for the flag
 		 i = check_sign_flags(format, i);	
- 		 
-		 // commenting this part just  for now!!
 		 i  = check_formatting_flags(format, i);
-
-		t = print_sign();
+			// CHAT GPT
+			int n = 1;
+			if (g_bonus.is_plus)
+			{
+			    va_list arg_copy;
+			    va_copy(arg_copy, args);
+			    n = check_sign(va_arg(arg_copy, int));
+			va_end(arg_copy);
+			} 
+			// TRY HARD 
+		t = print_sign(n);
 		count = placeholder(&args,((char *) format) [i], count); // typecasting!
-		//printf("\ncount is: %d\n", count);
-		//	i++;
 		}
 		else 
 		{

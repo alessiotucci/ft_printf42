@@ -77,6 +77,8 @@ int		ft_pointer(unsigned long nb);
 
 int	ft_putnumber_base(unsigned long long int nbr, char *base);
 
+int  check_sign(int num);
+
 int ft_putuns(unsigned int nbr);
 // bonus function (?)
 int check_sign_flags(const char *str, int i);
@@ -85,6 +87,6 @@ int pt_print_padding(char c, int width);
 
 int check_formatting_flags(const char *str, int i);
 
-int print_sign(void);
+int print_sign(int n);
 
 #endif

@@ -91,4 +91,14 @@ int ft_putuns(unsigned int nbr)
     return (i); // return the number of characters printed
 }
 
+int check_sign(int num)
+{
+	printf("this is the num %d\n" , num);
+    if (num < 0)
+        return -1;
+    else if (num > 0)
+        return 1;
+    else
+        return 0;
+}
 
