@@ -76,16 +76,6 @@ int	ft_printf(const char *format, ...)
 		 // commenting this part just  for now!!
 		 i  = check_formatting_flags(format, i);
 
-
-		// check if the values has been updated
-/*    printf("g_bonus.width UPDATED= %d\n", g_bonus.width);
-    printf("g_bonus.precision UPDATED= %d\n", g_bonus.precision);
-    printf("g_bonus.is_zero UPDATED= %d\n", g_bonus.is_zero);
-    printf("g_bonus.is_minus UPDATED= %d\n", g_bonus.is_minus);
-    printf("g_bonus.is_dot UPDATED= %d\n", g_bonus.is_dot);*/
-		//count = do_flags();	
-		// converting 
-		
 		t = print_sign();
 		count = placeholder(&args,((char *) format) [i], count); // typecasting!
 		//printf("\ncount is: %d\n", count);
