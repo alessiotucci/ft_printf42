@@ -101,6 +101,63 @@ Compile test_printf.c and link it with lift printf.a using the following command
 
 
 ```C
-gcc -Wall -Wextra -Werror -o test_printf test_printf.c -L. -lftprintf```
+
+gcc -Wall -Wextra -Werror -o test_printf test_printf.c -L. -lftprintf
+
+```
+
+**DAY 1: BONUS IMPLEMENTATION**
+
+If you plan to complete the bonus part, think about the implementation of your extra features from the start. This way, you will avoid the pitfalls of a naive approach.
+
+
+   # left-justify
+   the argument within the given field width.**
+For the - flag, you would need to check if it is present in the format string and adjust the padding of the output accordingly. You could also use the * specifier to read the field width from the argument list.
+```C
+        printf("|%10s|\n", "Hello");
+        // Output: |     Hello|
+        printf("|%-10s|\n", "Hello");
+        // Output: |Hello     |
+```
+# 0: 
+if the width of the field is specified, left-pads the number with zeros instead of spaces.** 
+For the 0 flag,
+you would need to check if it is present in the format string and, if so, use 0 instead of for the padding. Again, you could use the * specifier to read the field width from the argument list.
+
+
+```C
+        printf("|%05d|\n", 42); // Output: |00042|
+```
+# specifies the precision of a floating-point number. 
+For integers, this flag has no effect.**
+  For the `.` flag,
+ you would need to read the precision specifier from the format string and use it to format floating-point numbers. For integers, you could simply ignore it.
+```C
+        printf("|%.2f|\n", 3.141592); // Output: |3.14|
+```
+#  #:
+ **used with the o, x, or X conversion characters to prefix the output value with 0, 0x, or 0X, respectively.**
+For the `#` flag,
+you would need to check if it is present and, if so, prefix the output value with the appropriate string (0, 0x, or 0X).
+```C
+        printf("|%#x|\n", 42);       // Output: |0x2a|
+        printf("|%#o|\n", 42);       // Output: |052|
+        printf("|%#.2f|\n", 3.141592); // Output: |3.14|
+```
+# prints the sign (+ or -) of a signed number. 
+If the number is positive, a plus sign is printed.**
+For the `+` flag,
+you would need to check if the number is positive and, if so, print a plus sign. If it is negative, you would need to print a minus sign instead.
+```C
+        printf("|%+d|\n", 42); // Output: |+42|
+```
+# **` `  (space) flag:**
+** This flag is used to print a space before a positive number, if no sign is displayed.**
+```C
+        printf("|% d|\n", 42); // Output: | 42|
+        printf("|% d|\n", -42); // Output: |-42|
+``` 
+
 
   
