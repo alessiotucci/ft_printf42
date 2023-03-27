@@ -160,4 +160,134 @@ you would need to check if the number is positive and, if so, print a plus sign.
 ``` 
 
 
+
+<!-----
+
+You have some errors, warnings, or alerts. If you are using reckless mode, turn it off to see inline alerts.
+* ERRORs: 0
+* WARNINGs: 0
+* ALERTS: 3
+
+Conversion time: 1.339 seconds.
+
+
+Using this Markdown file:
+
+1. Paste this output into your source file.
+2. See the notes and action items below regarding this conversion run.
+3. Check the rendered output (headings, lists, code blocks, tables) for proper
+   formatting and use a linkchecker before you publish this page.
+
+Conversion notes:
+
+* Docs to Markdown version 1.0β34
+* Mon Mar 27 2023 03:53:24 GMT-0700 (PDT)
+* Source doc: FT_printf plan
+* This is a partial selection. Check to make sure intra-doc links work.
+* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
+
+----->
+
+
+<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 3.</p>
+<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
+
+<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
+<a href="#gdcalert2">alert2</a>
+<a href="#gdcalert3">alert3</a>
+
+<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
+
+
+**DAY 2 PROGRESS  **
+
+
+
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image1.png "image_tooltip")
+
+
+**The struct **t_printf is used to store relevant information about the format string and the corresponding arguments. Here's a brief explanation of each field:
+
+
+
+* **ret:** This is an integer that keeps track of the number of characters printed so far. We'll update this every time we print something.
+* **width:** This integer represents the field width specified in the format string. If no width is specified, it defaults to zero.
+* **precision:** This integer represents the precision specified in the format string. If no precision is specified, it defaults to -1.
+* **is_zero: **This integer is a flag that is set to 1 if the '0' flag is specified in the format string. This flag is used to determine whether to pad with zeros or spaces.
+* **is_minus:** This integer is a flag that is set to 1 if the '-' flag is specified in the format string. This flag is used to determine whether to left-align the output.
+* **is_dot:** This integer is a flag that is set to 1 if the '.' flag is specified in the format string. This flag is used to determine whether a precision was specified in the format string.
+
+**By using this struct,** we can easily keep track of all the relevant information about the format string and the corresponding arguments in a single object. This makes it easier to handle the different conversion specifiers and flags, as we can access all the necessary information in a uniform way.
+
+_va_list  args;_ is **WRONG HERE** ! 
+
+
+
+**DAY 3 PROGRESS**: make the flag work 
+
+I didn't make any progress… 
+
+**DAY 4 PROGRESS:** learn how struct works:
+
+I added a putnumber function to see if the conversion works, It goes on timeout because the function is recursive;
+
+Next I will start to approach the hexadecimals world to do the pointer conversion and print the memory address, and then add the '%%' conversion.
+
+**Made little to no progress with implementing the bonus**.
+
+
+
+<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image2.png "image_tooltip")
+
+
+**DAY 5 PROGRESS:**
+
+I am using printf inside the function to try debug the code, it seems like  there is a issue on how I am using the struct: 
+
+
+```
+It looks like there's an issue with how the width value is being stored and accessed in the struct.
+
+Based on the printf outputs you provided, it seems that the width value is correctly initialized to 0, but is not being properly updated by the width flag function. The printf output inside the flag function shows that the width value is being set correctly to the value of the digit after the % sign, but the printf output inside the placeholder function shows that the width value is being accessed incorrectly as 25 instead of 5.
+
+One possible explanation for this issue is that there may be multiple instances of the tdata struct being created and modified, and the version being accessed inside the placeholder function may not be the same as the one being modified inside the width flag function.
+
+To fix this issue, you may want to check that there is only one instance of the tdata struct being created and passed around, and that any modifications made to it in one part of the code are reflected in other parts of the code that access it. It may also be helpful to add more printf statements to track the value of the width variable at different stages of the code to better understand where the issue is occurring.
+```
+
+
+THE struct is now working but everything else  not.. 
+
+**DAY 6 PROGRESS: **
+
+I realized the approach was wrong, so I created a function called "check_flags" that does all the checks I need and updates the struct.
+
+I checked if the struct was being updated correctly using various printf inside the function call. 
+
+After that I modified the test.c function to do more testing and now I need to create a function called "do_flags" that prints out what I need to correctly format the output.** **
+
+**DAY 7 PROGESS:**
+
+I have splitted the check_flags  function into two smaller  functions to check separately the sign flags and  the formatting  flags. Since the formatting  flags are harder to implement.
+
+
+
+<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image3.png "image_tooltip")
+
+
+**DAY 8 PROGRESS:**
+
+I tested the little progress I made earlier and I found out that there is something working, 
+
+
+
   
